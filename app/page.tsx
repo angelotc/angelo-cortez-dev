@@ -3,7 +3,6 @@ import ExperienceSection from './components/ExperienceSection';
 import ScrollToTop from './components/ScrollToTop';
 import HeaderSection from './components/HeaderSection';
 import AboutSection from './components/AboutSection';
-import ContactSection from './components/ContactSection';
 
 export default function Page() {
   return (
@@ -21,8 +20,6 @@ export default function Page() {
       {/* Experience Section */}
       <ExperienceSection />
 
-      {/* Contact Section */}
-      <ContactSection />
     </div>
   );
 }

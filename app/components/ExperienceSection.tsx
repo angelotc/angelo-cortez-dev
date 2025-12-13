@@ -6,11 +6,11 @@ const ExperienceSection = () => {
   const experiences = [
     {
       company: "8x8",
-      role: "Software Engineer",
+      role: "Senior Software Engineer",
       period: "Present",
       description: "Building UCaaS and CCaaS automations for SMBs and enterprises",
       highlights: [
-        "Created custom integrations for contact centers",
+        "Custom integrations, IVR's, and voice agents  for contact centers",
         "Collaborated on custom routing configurations for enterprise customers",
         "Improved customer experience through automation"
       ]
@@ -22,9 +22,8 @@ const ExperienceSection = () => {
       description: "Development on risk of sepsis model for hospitals",
       highlights: [
         "Worked on healthcare analytics",
-        "Solved tier 4 tickets",
-        "Wrote MUMPS code to find hospital organizations affected by software bugs",
-        "Developed risk prediction models",
+        "Wrote MUMPS code to solve healthcare use-cases",
+        "Developed data quality checks for risk prediction models",
         "Collaborated with healthcare providers"
       ]
     }

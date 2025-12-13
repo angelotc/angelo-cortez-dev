@@ -8,29 +8,37 @@ const ProjectsSection = () => {
     const projects = [
         {
             title: "Nippon Homes",
-            description: "Zillow for Japan. A distributed listing scraper hosted on a Hetzner VM, this project aggregates real estate listings from various sources, deduplicates them, and does LLM translations to serve them to the western audience.",
-            technologies: ["Supabase", "PostgreSQL", "Vercel", "AWS S3", "AWS API Gateway", "Next.js", "Scrapy", "React"],
+            description: "An English Zillow for Japan. ~8k monthly users.",
+            technologies: ["Supabase", "PostgreSQL", "Vercel", "AWS S3", "AWS API Gateway", "Next.js", "Scrapy", "React", "PyTorch", "PostGIS",],
             bgColor: "bg-emerald-50 dark:bg-emerald-900/20",
             link: "https://nipponhomes.com",
             image: "/nipponhomes.png"
         },
-        {
-            title: "Notarix - EthGlobal Hackathon Winner",
-            description: "A secure, real-world, ID-verified notarization platform built during the 2024 EthGlobal Hackathon San Francisco. Won the Build with USDC/EURC award ($1,500). The platform streamlines digital notarization while maintaining strong user privacy and security.",
-            technologies: ["Next.js", "Shadcn UI", "Sign Protocol", "Polygon", "Synaps", "Privado ID", "React"],
-            bgColor: "bg-emerald-50 dark:bg-emerald-900/20",
-            link: "https://ethglobal.com/showcase/notarix-hyb0a",
-            image: "/notarix.jpg"
+        // {
+        //     title: "Notarix - EthGlobal Hackathon Winner",
+        //     description: "A secure, real-world, ID-verified notarization platform built during the 2024 EthGlobal Hackathon San Francisco. Won the Build with USDC/EURC award ($1,500). The platform streamlines digital notarization while maintaining strong user privacy and security.",
+        //     technologies: ["Next.js", "Shadcn UI", "Sign Protocol", "Polygon", "Synaps", "Privado ID", "React"],
+        //     bgColor: "bg-emerald-50 dark:bg-emerald-900/20",
+        //     link: "https://ethglobal.com/showcase/notarix-hyb0a",
+        //     image: "/notarix.jpg"
 
+        // },
+          {
+            "title": "Semantic Video Search (Local TwelveLabs Clone)",
+            "description": "1st place winner in AMD / Liquid AI's SF Hackathon. Given a search query, the system will find relevant clips in your video catalog.",
+            "technologies": ["Streamlit", "LiquidAI LFM2-VL", "Sentence Transformers", "PyTorch", "OpenCV", "yt-dlp", "FFmpeg", "Python",  "Recommendation Systems"],
+            "bgColor": "bg-violet-50 dark:bg-violet-900/20",
+            "link": "https://github.com/angelotc/lfm2-vl-video-search",
+            "image": "/video-search.png"
         },
-        {
-            title: "Stream Pal AI",
-            description: "A streamer companion tool that listens to both the streamer's voice and chat, providing interactive responses. The application integrates real-time speech-to-text processing with chat interaction and AI-powered responses.",
-            technologies: ["Next.js", "Deepgram", "Twitch EventSub API", "OpenAI", "Supabase", "PostgreSQL"],
-            bgColor: "bg-purple-50 dark:bg-purple-900/20",
-            link: "https://github.com/angelotc/stream-pal-ai/blob/main/public/stream-pal-architecture.png",
-            image: "/stream-pal-architecture.png"
-        },
+        // {
+        //     title: "Stream Pal AI",
+        //     description: "A streamer companion tool that listens to both the streamer's voice and chat, providing interactive responses. The application integrates real-time speech-to-text processing with chat interaction and AI-powered responses.",
+        //     technologies: ["Next.js", "Deepgram", "Twitch EventSub API", "OpenAI", "Supabase", "PostgreSQL"],
+        //     bgColor: "bg-purple-50 dark:bg-purple-900/20",
+        //     link: "https://github.com/angelotc/stream-pal-ai/blob/main/public/stream-pal-architecture.png",
+        //     image: "/stream-pal-architecture.png"
+        // },
         {
             title: "Materials Application Domain",
             description: "Maintainer and contributor for an uncertainty quantification tool for materials machine learning datasets. Implemented isolation forests, Mahalanobis distances, nested cross validation, and regressions for small datasets.",
