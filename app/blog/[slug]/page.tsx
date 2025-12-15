@@ -2,7 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { MDXRemote } from 'next-mdx-remote-client/rsc';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 
 interface PostPageProps {
   params: Promise<{ slug: string }>;
@@ -87,7 +90,15 @@ export default async function PostPage({ params }: PostPageProps) {
             </time>
           )}
           <div className="prose prose-gray dark:prose-invert max-w-none">
-            <MDXRemote source={post.content} />
+            <MDXRemote
+              source={post.content}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkMath],
+                  rehypePlugins: [rehypeKatex],
+                },
+              }}
+            />
           </div>
         </article>
       </div>
