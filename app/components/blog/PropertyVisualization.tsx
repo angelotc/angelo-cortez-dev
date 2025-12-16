@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { PCA } from 'ml-pca';
+import { Config, ModeBarDefaultButtons } from 'plotly.js';
 
 const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
 
@@ -125,11 +126,11 @@ export default function PropertyVisualization({ properties }: PropertyVisualizat
     hovermode: 'closest',
   };
 
-  const config = {
+  const config: Partial<Config> = {
     responsive: true,
     displayModeBar: true,
     displaylogo: false,
-    modeBarButtonsToRemove: ['toImage', 'sendDataToCloud'],
+    modeBarButtonsToRemove: ['toImage', 'sendDataToCloud'] as ModeBarDefaultButtons[],
   };
 
   return (

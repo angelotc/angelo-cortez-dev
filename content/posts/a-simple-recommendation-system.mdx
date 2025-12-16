@@ -251,6 +251,42 @@ Where n is the number of listings you've viewed.
 
 Your preference vector becomes the element-wise average—pointing toward "small, reasonably-priced Tokyo condos."
 
+**Computing the centroid:**
+
+$$
+\vec{p}_{\text{user}} = \begin{bmatrix}
+-1.0 \\
+0.4 \\
+1.0 \\
+-0.27 \\
+-0.9 \\
+1.0 \\
+-1.0 \\
+-0.5 \\
+-0.33
+\end{bmatrix}
+$$
+
+This centroid vector represents your inferred preference profile. Here's how it looks in 3D space:
+
+<PreferenceCentroidVisualization vectors={[
+  {
+    label: "Property 1",
+    vector: [-1, 0.5, 1, -0.5, -1, 1, -1, -0.5, -1],
+    description: "Small Tokyo condo"
+  },
+  {
+    label: "Property 2",
+    vector: [-0.8, 0.3, 0.8, 0, -0.7, 1, -1, -0.3, -1],
+    description: "Another small condo"
+  },
+  {
+    label: "Property 3",
+    vector: [-1.2, 0.4, 1.2, -0.3, -1, 1, -1, -0.7, 1],
+    description: "Compact apartment"
+  }
+]} />
+
 ---
 
 ## Finding Similar Properties
