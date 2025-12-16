@@ -4,7 +4,7 @@ date: "2025-12-15"
 excerpt: "Welcome to my blog! This is my first post."
 ---
 
-In this post, I'll walk you through how I turned property listings into vectors for [Nippon Homes](https://nipponhomes.com/) and used them to surface homes you're likely to view. Currently, NipponHomes has around 150k active listings at any given time and 8k monthly users.
+I turned property listings into vectors for [Nippon Homes](https://nipponhomes.com/) and used them to surface homes you're likely to view.. Currently, NipponHomes has around 150k active listings at any given time and 8k monthly users.
 
 <img src="/recommended-listings.png" alt="Recommended listings" style={{ width: '60%', margin: '2rem auto', display: 'block' }} />
 
@@ -12,7 +12,7 @@ In this post, I'll walk you through how I turned property listings into vectors 
 
 ## The Core Idea: Properties as Vectors
 
-Imagine every property as a point floating in 9-dimensional space. Similar properties cluster together—small Tokyo condos in one region, spacious countryside houses in another.
+Every property is a point in 9-dimensional space. Similar properties cluster together—small Tokyo condos in one region, spacious countryside houses in another.
 
 When you browse listings, we're essentially watching which regions of this space you're drawn to. After a few views, we can compute your "preference center" and find other properties nearby.
 
@@ -26,7 +26,7 @@ Each dimension captures something meaningful about the property.
 
 ### Seeing It In Action
 
-Here's what this looks like with real properties from the Nippon Homes database. Below are 6 Tokyo condos and 6 Hokkaido houses, all similarly priced (¥22M-¥40M). Despite similar prices, they live in completely different regions of our 9-dimensional space.
+Here are 6 Tokyo condos and 6 Hokkaido houses from the database, all similarly priced (¥22M-¥40M). Despite similar prices, they live in completely different regions of our 9-dimensional space.
 
 Since we can't visualize 9 dimensions, I've used **Principal Component Analysis (PCA)** to project them into 3D:
 
@@ -153,7 +153,7 @@ Since we can't visualize 9 dimensions, I've used **Principal Component Analysis 
   }
 ]} />
 
-Notice the clear separation: **blue points (Tokyo condos)** cluster together in one region, while **orange points (Hokkaido houses)** form their own distinct group. This isn't magic—it's the natural result of how we encode the features. Tokyo condos are smaller (48-64㎡) with higher price-per-㎡, while Hokkaido houses are spacious (74-251㎡) with more rooms.
+Notice the clear separation: **blue points (Tokyo condos)** cluster together in one region, while **orange points (Hokkaido houses)** form their own distinct group. This happens because Tokyo condos are smaller (48-64㎡) with higher price-per-㎡, while Hokkaido houses are spacious (74-251㎡) with more rooms.
 
 When you browse Tokyo condos, your preference vector moves toward the blue cluster. The system then finds other nearby blue points (similar condos) you haven't seen yet.
 
