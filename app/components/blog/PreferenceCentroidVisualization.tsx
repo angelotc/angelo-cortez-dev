@@ -116,7 +116,7 @@ export default function PreferenceCentroidVisualization({ vectors }: PreferenceC
   };
 
   // Create lines from each point to the centroid
-  const lineTraces = pcaData.coords.map((coord, i) => ({
+  const lineTraces = pcaData.coords.map((coord) => ({
     x: [coord[0], pcaData.centroidCoords[0]],
     y: [coord[1], pcaData.centroidCoords[1]],
     z: [coord[2], pcaData.centroidCoords[2]],
@@ -181,6 +181,7 @@ export default function PreferenceCentroidVisualization({ vectors }: PreferenceC
           Computing the Preference Centroid
         </h3>
         <div className="w-full" style={{ height: '600px' }}>
+          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           <Plot
             data={data as any}
             layout={layout as any}
@@ -193,7 +194,7 @@ export default function PreferenceCentroidVisualization({ vectors }: PreferenceC
           <p>
             Your preference vector is calculated by averaging each dimension
             across all {vectors.length} viewed properties. In this 3D projection, the centroid naturally sits
-            near the "center of mass" of the blue points—representing your implicit preferences based on browsing behavior.
+            near the &quot;center of mass&quot; of the blue points—representing your implicit preferences based on browsing behavior.
           </p>
         </div>
       </div>
