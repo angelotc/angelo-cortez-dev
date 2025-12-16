@@ -352,7 +352,7 @@ The `<->` operator computes L2 distance and leverages the HNSW index automatical
 ## Exploration vs. Exploitation (adding diversity to ranked results)
 
 A pure similarity-based system has a problem: it can create **filter bubbles**. If you only see properties similar to what you've viewed, you might miss great options outside your initial exploration. Inside the Next.JS function, after we call `get_personalization_rankings` 
-re-rank the listings, we sort them in a format such that we interleave non-matches, to give the user a chance to explore non-similar listings (to add diversity).
+to re-rank the listings, we then sort them in a format such that we interleave non-matches, to give the user a chance to explore non-similar listings (to add diversity).
 
 We address this with **interleaving**:
 
