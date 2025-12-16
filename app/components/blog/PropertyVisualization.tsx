@@ -144,10 +144,9 @@ export default function PropertyVisualization({ properties }: PropertyVisualizat
           Rotate and hover to explore the properties.
         </p>
         <div className="w-full" style={{ height: '600px' }}>
-          {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           <Plot
-            data={data as any}
-            layout={layout as any}
+            data={data as any} // eslint-disable-line @typescript-eslint/no-explicit-any
+            layout={layout as any} // eslint-disable-line @typescript-eslint/no-explicit-any
             config={config}
             style={{ width: '100%', height: '100%' }}
             useResizeHandler
