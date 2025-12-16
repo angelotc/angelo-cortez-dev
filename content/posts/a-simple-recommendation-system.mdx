@@ -4,7 +4,7 @@ date: "2025-12-15"
 excerpt: "Welcome to my blog! This is my first post."
 ---
 
-In this post, I'll walk you through how I turned property listings into vectors for [Nippon Homes](https://nipponhomes.com/) and used them to surface homes you're likely to love.
+In this post, I'll walk you through how I turned property listings into vectors for [Nippon Homes](https://nipponhomes.com/) and used them to surface homes you're likely to love. Currently, NipponHomes has around 150k active listings at any given time.
 
 ---
 
@@ -379,9 +379,9 @@ This is version 1. Future improvements that I have pondered about:
 
 - **Dwell-time weighting:** Properties you spent more time viewing should influence your preference vector more. Tried to implement this but ran into some errors. May revisit.
 - **Recency decay:** Recently viewed listings matter **more** than listing views from last week. 
-- **Learning to rank (LTR):** Meta, Google, and other big companies use LTR to rank their ads effectively. From the developers that I spoke to there, it sounded like they tend to just use XGBoost for their late stage rankers. Use click-through data to tune dimension weights. There's a few things I want to experiment in this area:
+- **Learning to rank (LTR):** Meta, Google, and other big companies use LTR to rank their ads effectively. From the developers that I spoke to there, it sounded like they tend to just use XGBoost for their late stage rankers. There's a few things I want to experiment in this area:
   - LightGBM/XGBoost with LambdaMART
-  - Vowpal Wabbit for multi-armed bandits
+  - Vowpal Wabbit for multi-armed bandits (Use click-through data to tune dimension weights)
   - Simple MLP neural net
 - **Image embeddings:** I've prototyped this for Hokkaido listings using [LiquidAI's LFM2-VL-1.6B model](https://github.com/angelotc/lfm2-vl-embeddings). Visual embeddings from property photos are fused with the 9-dimensional metadata through an MLP into 128-dimensional vectors for similarity search. I'm kinda GPU-poor though so, I'll stick to the basics for now.
 
