@@ -93,35 +93,44 @@ export default function PropertyVisualization({ properties }: PropertyVisualizat
     createTrace(houses, 'Hokkaido Houses', '#f97316'),
   ];
 
+  // Match site background colors
+  const isDark = typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
   const layout = {
     autosize: true,
     scene: {
       xaxis: {
         title: `PC1 (${(pcaData.explainedVariance[0] * 100).toFixed(1)}% variance)`,
-        gridcolor: '#e5e7eb',
-        zerolinecolor: '#9ca3af',
+        gridcolor: isDark ? '#27272a' : '#e5e7eb',
+        zerolinecolor: isDark ? '#52525b' : '#9ca3af',
+        color: isDark ? '#ededed' : '#171717',
       },
       yaxis: {
         title: `PC2 (${(pcaData.explainedVariance[1] * 100).toFixed(1)}% variance)`,
-        gridcolor: '#e5e7eb',
-        zerolinecolor: '#9ca3af',
+        gridcolor: isDark ? '#27272a' : '#e5e7eb',
+        zerolinecolor: isDark ? '#52525b' : '#9ca3af',
+        color: isDark ? '#ededed' : '#171717',
       },
       zaxis: {
         title: `PC3 (${(pcaData.explainedVariance[2] * 100).toFixed(1)}% variance)`,
-        gridcolor: '#e5e7eb',
-        zerolinecolor: '#9ca3af',
+        gridcolor: isDark ? '#27272a' : '#e5e7eb',
+        zerolinecolor: isDark ? '#52525b' : '#9ca3af',
+        color: isDark ? '#ededed' : '#171717',
       },
-      bgcolor: '#f9fafb',
+      bgcolor: isDark ? '#0a0a0a' : '#ffffff',
     },
-    paper_bgcolor: 'transparent',
+    paper_bgcolor: isDark ? '#0a0a0a' : '#ffffff',
     plot_bgcolor: 'transparent',
     margin: { l: 0, r: 0, b: 0, t: 40 },
     legend: {
       x: 0.7,
       y: 0.9,
-      bgcolor: 'rgba(255, 255, 255, 0.8)',
-      bordercolor: '#d1d5db',
+      bgcolor: isDark ? 'rgba(10, 10, 10, 0.9)' : 'rgba(255, 255, 255, 0.9)',
+      bordercolor: isDark ? '#3f3f46' : '#d1d5db',
       borderwidth: 1,
+      font: {
+        color: isDark ? '#ededed' : '#171717',
+      },
     },
     hovermode: 'closest',
   };
