@@ -6,6 +6,7 @@ import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
+import PropertyVisualization from '@/app/components/blog/PropertyVisualization';
 
 interface PostPageProps {
   params: Promise<{ slug: string }>;
@@ -97,6 +98,9 @@ export default async function PostPage({ params }: PostPageProps) {
                   remarkPlugins: [remarkMath],
                   rehypePlugins: [rehypeKatex],
                 },
+              }}
+              components={{
+                PropertyVisualization,
               }}
             />
           </div>

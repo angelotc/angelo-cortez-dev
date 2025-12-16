@@ -22,6 +22,139 @@ $$
 
 Each dimension captures something meaningful about the property.
 
+### Seeing It In Action
+
+Here's what this looks like with **real properties** from the Nippon Homes database. Below are 6 Tokyo condos and 6 Hokkaido houses, all similarly priced (¥22M-¥40M). Despite similar prices, they live in completely different regions of our 9-dimensional space.
+
+Since we can't visualize 9 dimensions, I've used **Principal Component Analysis (PCA)** to project them into 3D:
+
+<PropertyVisualization properties={[
+  {
+    id: "78301072",
+    location: "Tokyo (Musashino)",
+    price: 37000000,
+    size: 64.01,
+    rooms: "3LDK",
+    yearBuilt: 2019,
+    type: "condo",
+    vector: [-0.7198, 0.42643, 1.39017, -1.26667, -0.33333, 1, -1, -0.36633, -1]
+  },
+  {
+    id: "78935568",
+    location: "Tokyo (Itabashi)",
+    price: 29800000,
+    size: 58.93,
+    rooms: "2LDK",
+    yearBuilt: 1977,
+    type: "condo",
+    vector: [-0.8214, 0.21002, 1.02842, 1.53333, -1, 1, -1, 0.4465, -1]
+  },
+  {
+    id: "77643761",
+    location: "Tokyo (Itabashi)",
+    price: 23800000,
+    size: 52.79,
+    rooms: "1LDK",
+    yearBuilt: 1981,
+    type: "condo",
+    vector: [-0.9442, -0.01480, 0.75421, 1.26667, -1.66667, 1, -1, 2.779, -1]
+  },
+  {
+    id: "78852981",
+    location: "Tokyo (Fuchu)",
+    price: 33800000,
+    size: 56.26,
+    rooms: "2LDK",
+    yearBuilt: 2002,
+    type: "condo",
+    vector: [-0.8748, 0.33597, 1.50391, -0.13333, -1, 1, -1, 0.313, -1]
+  },
+  {
+    id: "78906334",
+    location: "Tokyo (Shinjuku)",
+    price: 37000000,
+    size: 47.78,
+    rooms: "Studio",
+    yearBuilt: 1973,
+    type: "condo",
+    vector: [-1.0444, 0.42643, 2.37191, 1.8, -0.33333, -1, -1, -0.90733, -1]
+  },
+  {
+    id: "78961401",
+    location: "Tokyo (Adachi)",
+    price: 29900000,
+    size: 63.35,
+    rooms: "3LDK",
+    yearBuilt: 1991,
+    type: "condo",
+    vector: [-0.733, 0.21337, 0.85991, 0.6, -0.33333, 1, -1, -0.38833, -1]
+  },
+  {
+    id: "78817993",
+    location: "Hokkaido (Sapporo)",
+    price: 34800000,
+    size: 111.74,
+    rooms: "3LDK",
+    yearBuilt: 2017,
+    type: "house",
+    vector: [0.2348, 0.36513, 0.05719, -1.13333, -0.33333, 1, 1, 1.22467, -1]
+  },
+  {
+    id: "78496249",
+    location: "Hokkaido (Sapporo)",
+    price: 39800000,
+    size: 162.46,
+    rooms: "4LDK",
+    yearBuilt: 1971,
+    type: "house",
+    vector: [1.2492, 0.49938, -0.27508, 1.93333, 0.33333, 1, 1, 1.5615, -1]
+  },
+  {
+    id: "76847806",
+    location: "Hokkaido (Sapporo)",
+    price: 37100000,
+    size: 114.27,
+    rooms: "3LDK+S",
+    yearBuilt: 2009,
+    type: "house",
+    vector: [0.2854, 0.42913, 0.12335, -0.6, -0.33333, 1, 1, 1.309, 1]
+  },
+  {
+    id: "77440362",
+    location: "Hokkaido (Kitahiroshima)",
+    price: 21800000,
+    size: 119.23,
+    rooms: "4LDK+S",
+    yearBuilt: 2001,
+    type: "house",
+    vector: [0.3846, -0.10258, -0.5858, -0.06667, 0.33333, 1, 1, 0.48075, 1]
+  },
+  {
+    id: "77835609",
+    location: "Hokkaido (Ebetsu)",
+    price: 27000000,
+    size: 73.70,
+    rooms: "1LDK",
+    yearBuilt: 2016,
+    type: "house",
+    vector: [-0.526, 0.11135, 0.33175, -1.06667, -1.66667, 1, 1, 4.87, -1]
+  },
+  {
+    id: "78033564",
+    location: "Hokkaido (Sapporo)",
+    price: 33800000,
+    size: 251.14,
+    rooms: "4LDK+S",
+    yearBuilt: 1984,
+    type: "house",
+    vector: [3.0228, 0.33597, -0.82707, 1.06667, 0.33333, 1, 1, 3.7785, 1]
+  }
+]} />
+
+Notice the clear separation: **blue points (Tokyo condos)** cluster together in one region, while **orange points (Hokkaido houses)** form their own distinct group. This isn't magic—it's the natural result of how we encode the features. Tokyo condos are smaller (48-64㎡) with higher price-per-㎡, while Hokkaido houses are spacious (74-251㎡) with more rooms.
+
+When you browse Tokyo condos, your preference vector moves toward the blue cluster. The system then finds other nearby blue points (similar condos) you haven't seen yet.
+
 ---
 
 ## The 9 Dimensions We Track
