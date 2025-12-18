@@ -160,7 +160,7 @@ When you browse Tokyo condos, your preference vector moves toward the blue clust
 
 ## The 9 Dimensions We Track
 
-Here's the actual PostgreSQL trigger function called `get_personalized_rankings` that computes the feature vector whenever a listing is inserted or updated:
+Here's the actual PostgreSQL trigger function called `update_listing_vector` that computes the feature vector whenever a listing is inserted or updated:
 
 ```sql
 DECLARE
