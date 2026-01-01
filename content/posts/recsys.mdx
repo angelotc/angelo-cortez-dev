@@ -3,7 +3,7 @@ title: "a simple recommendation system"
 date: "2025-12-15"
 ---
 
-I turned property listings into vectors for [Nippon Homes](https://nipponhomes.com/) and used them to surface homes you're likely to view.. Currently, NipponHomes has around 150k active listings at any given time and 8k monthly users.
+I turned property listings into vectors for [Nippon Homes](https://nipponhomes.com/) to surface homes users are likely to view. The platform currently hosts around 150k active listings and serves 8k monthly users.
 
 <img src="/recommended-listings.png" alt="Recommended listings" style={{ width: '60%', margin: '2rem auto', display: 'block' }} />
 
@@ -152,7 +152,7 @@ Since we can't visualize 9 dimensions, I've used **Principal Component Analysis 
   }
 ]} />
 
-Notice the clear separation: **blue points (Tokyo condos)** cluster together in one region, while **orange points (Hokkaido houses)** form their own distinct group. This happens because Tokyo condos are smaller (48-64㎡) with higher price-per-㎡, while Hokkaido houses are spacious (74-251㎡) with more rooms.
+Notice the clear separation: **blue points (Tokyo condos)** cluster together in one region, while **orange points (Hokkaido houses)** form their own distinct group. This happens because Tokyo condos are smaller (48-64m²) with higher price-per-m², while Hokkaido houses are spacious (74-251m²) with more rooms.
 
 When you browse Tokyo condos, your preference vector moves toward the blue cluster. The system then finds other nearby blue points (similar condos) you haven't seen yet.
 
@@ -350,8 +350,7 @@ The `<->` operator computes L2 distance and leverages the HNSW index automatical
 
 ## Exploration vs. Exploitation (adding diversity to ranked results)
 
-A pure similarity-based system has a problem: it can create **filter bubbles**. If you only see properties similar to what you've viewed, you might miss great options outside your initial exploration. Inside the Next.JS function, after we call `get_personalization_rankings` 
-to re-rank the listings, we then sort them in a format such that we interleave non-matches, to give the user a chance to explore non-similar listings (to add diversity).
+A pure similarity-based system has a problem: it can create **filter bubbles**. If you only see properties similar to what you've viewed, you might miss great options outside your initial exploration. In our Next.js backend, we call `get_personalization_rankings` and then interleave the results with random non-matches. This ensures users are exposed to diverse listings outside their immediate preference bubble.
 
 We address this with **interleaving**:
 
@@ -372,7 +371,7 @@ This is version 1. Future improvements that I have pondered about:
 
 - **Dwell-time weighting:** Properties you spent more time viewing should influence your preference vector more. Tried to implement this but ran into some errors. May revisit.
 - **Recency decay:** Recently viewed listings matter **more** than listing views from last week. 
-- **Learning to rank (LTR):** Meta, Google, and other big companies use LTR to rank their ads effectively. From the developers that I spoke to there, it sounded like they tend to just use XGBoost for their late stage rankers. There's a few things I want to experiment in this area:
+- **Learning to rank (LTR):** Meta, Google, and other big companies use LTR to rank their ads effectively. Discussions with engineers at these companies suggest they often rely on XGBoost for their late-stage rankers. There's a few things I want to experiment in this area:
   - LightGBM/XGBoost with LambdaMART
   - Vowpal Wabbit for multi-armed bandits (Use click-through data to tune dimension weights)
   - Simple MLP neural net
